@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Игра закончена</title>
+</head>
+<body>
+<h1>Игра закончена</h1>
+<h1 id="demo"></h1>
+<p><a href="index.html">Начать заново</a></p>
+</body>
+
+<script>
+    newData = [];
+    newData = window.localStorage.getItem('fish_score')
+        .split(",")
+        .map(value => parseInt(value));
+
+    let best = newData.sort((a, b) => b - a)[0];
+
+
+    document.getElementById("demo").innerHTML = "Ваш лучший результат: " + best + "<br /> Все ваши результаты:" + newData;
+</script>
+
+</html>
