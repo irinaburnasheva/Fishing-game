@@ -148,7 +148,7 @@ function calculateCount(height) {
     return count;
 }
 
-//геренация рандомной рыбы
+//генерация рандомной рыбки
 function createRandomFish() {
     if (new Date().getSeconds() % 6 === 0 && new Date().getMilliseconds() === 500) {
         newFish();
