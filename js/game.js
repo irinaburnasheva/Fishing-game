@@ -26,7 +26,7 @@ moving.src = "audio/fly.mp3";
 score_audio.src = "audio/score.mp3";
 detonation.src = "audio/detonation.mp3";
 
-// При нажатии на какую-либо кнопку
+// Отслеживание события нажатия на клавиши стрелок вверх и вниз
 document.addEventListener("keydown", moveHook);
 
 /* Функция для перемещения крючка:
@@ -56,11 +56,12 @@ fishList[0] = {
     size: randomFishImg()
 };
 
+//Счет при старте игры
 var score = 0;
 
 
 function gameOver() {
-    let oldData = window.localStorage.getItem('fish_score')
+    let oldData = window.localStorage.getItem('fish_score');
     let newData;
     if (oldData == null) {
         newData = [score];
@@ -105,7 +106,7 @@ function draw() {
 
 //выбор рандомной картинки для рыбок
 function randomFishImg() {
-    let number = Math.floor(Math.random() * 4)
+    let number = Math.floor(Math.random() * 4);
     if (number === 0) {
         return smallFish;
     } else if (number === 1) {
@@ -115,7 +116,7 @@ function randomFishImg() {
     } else return bomb;
 }
 
-//Удаляем рыбок, которые пропадают с экрана
+//Удаление рыбок, которые пропадают с экрана
 function deleteFishWhoWentOutScreen() {
     fishList.filter(function (value, index) {
         if (value.x < 0) {
@@ -124,7 +125,7 @@ function deleteFishWhoWentOutScreen() {
     });
 }
 
-//создаем новую рыбку в рандомном месте
+//Создание новой рыбки в рандомном месте
 function newFish() {
     fishList.push({
         x: cvs.width,
@@ -133,7 +134,7 @@ function newFish() {
     });
 }
 
-//расчет количества очков в зависимости от типа рыбы
+//Расчет количества очков в зависимости от типа рыбки
 function calculateCount(height) {
     let count;
     if (height === 57) {
@@ -148,7 +149,7 @@ function calculateCount(height) {
     return count;
 }
 
-//генерация рандомной рыбки
+//Функция генерации рандомной рыбки
 function createRandomFish() {
     if (new Date().getSeconds() % 6 === 0 && new Date().getMilliseconds() === 500) {
         newFish();

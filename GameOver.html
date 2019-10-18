@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <title>Игра закончена</title>
@@ -19,7 +19,7 @@
     let best = newData.sort((a, b) => b - a)[0];
 
 
-    document.getElementById("demo").innerHTML = "Ваш лучший результат: " + best + "<br /> Все ваши результаты:" + newData;
+    document.getElementById("demo").innerHTML = "Ваш лучший результат: " + best + "<br /> Все ваши результаты:" + window.localStorage.getItem('fish_score');
 </script>
 
 </html>
